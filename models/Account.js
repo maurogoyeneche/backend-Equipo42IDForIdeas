@@ -3,11 +3,6 @@ module.exports = (sequelize, Model, DataTypes) => {
 
   Account.init(
     {
-      id: {
-        type: DataTypes.BIGINT.UNSIGNED,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       amount: {
         type: DataTypes.FLOAT(15, 2),
       },

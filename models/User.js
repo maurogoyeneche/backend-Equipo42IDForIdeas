@@ -3,11 +3,6 @@ module.exports = (sequelize, Model, DataTypes) => {
 
   User.init(
     {
-      id: {
-        type: DataTypes.BIGINT.UNSIGNED,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       email: {
         type: DataTypes.STRING,
       },
