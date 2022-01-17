@@ -18,7 +18,6 @@ const Transaction = require('./Transaction')(sequelize, Model, DataTypes);
 //relationship between models
 User.hasMany(Account);
 Account.belongsTo(User);
-
 Account.hasMany(Transaction);
 Transaction.belongsTo(Account);
 
