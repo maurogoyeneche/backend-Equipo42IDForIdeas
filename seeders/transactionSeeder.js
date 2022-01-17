@@ -6,7 +6,7 @@ faker.locale = 'es';
 module.exports = async () => {
   const transactions = [];
 
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 10; i++) {
     transactions.push({
       amount: faker.finance.amount(),
       origin_account: faker.finance.account(),
