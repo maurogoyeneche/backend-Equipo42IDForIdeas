@@ -1,5 +1,6 @@
 const express = require('express');
 const publicRouter = express.Router();
+const pageController = require('../controllers/pageController');
 const userController = require('../controllers/userController');
 const checkJwt = require('express-jwt');
 
@@ -10,5 +11,8 @@ publicRouter.post('/token', userController.login);
 
 //User routes
 publicRouter.get('/user', tokenVerification, userController.show);
+
+
+
 
 module.exports = publicRouter;
