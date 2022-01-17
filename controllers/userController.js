@@ -1,12 +1,9 @@
 const { User } = require('../models');
 const jwt = require('jsonwebtoken');
 
-const showLogin = (req, res) => {};
-
 const login = async (req, res) => {
   const user = await User.findOne({ where: { email: req.body.email } });
-  console.log(user);
-  const token = jwt.sign({ id: user.id, email: user.email }, 'estaeslaclavesecreta');
+  const token = jwt.sign({ id: user.id, email: user.email }, 'UnStringMuyScreto');
   if (user.password === req.body.password) {
     res.json({ accesToken: token });
   } else {
@@ -14,7 +11,14 @@ const login = async (req, res) => {
   }
 };
 
+const show = async (req, res) => {
+  const user = await User.findByPk(req.user.id);
+  if (!user)
+    return res.status(401).json({ error: 'Sorry, You do not have permission to access here!' });
+  res.json({ ...user.dataValues, password: undefined }).status(200);
+};
+
 module.exports = {
-  showLogin,
+  show,
   login,
 };
