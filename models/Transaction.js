@@ -7,6 +7,8 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
+        unique: true,
+        allowNull: false,
       },
       amount: {
         type: DataTypes.FLOAT(15, 2),

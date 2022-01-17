@@ -12,7 +12,4 @@ publicRouter.post('/token', userController.login);
 //User routes
 publicRouter.get('/user', tokenVerification, userController.show);
 
-
-
-
 module.exports = publicRouter;
