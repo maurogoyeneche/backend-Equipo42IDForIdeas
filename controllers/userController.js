@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { Transaction } = require('../models');
 const jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
@@ -18,7 +19,13 @@ const show = async (req, res) => {
   res.json({ ...user.dataValues, password: undefined }).status(200);
 };
 
+const showAllTransactions = async (req, res) => {
+  const transactions = await Transaction.findAll();
+  res.json(transactions);
+};
+
 module.exports = {
   show,
   login,
+  showAllTransactions,
 };

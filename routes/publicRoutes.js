@@ -10,6 +10,7 @@ const tokenVerification = checkJwt({ secret: 'UnStringMuyScreto', algorithms: ['
 publicRouter.post('/token', userController.login);
 
 //User routes
-publicRouter.get('/user', tokenVerification, userController.show);
+publicRouter.get('/', tokenVerification, userController.show);
+publicRouter.get('/transactions', tokenVerification, userController.showAllTransactions);
 
 module.exports = publicRouter;
