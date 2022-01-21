@@ -4,14 +4,14 @@ module.exports = (sequelize, Model, DataTypes) => {
   Transaction.init(
     {
       id: {
-        type: DataTypes.BIGINT.UNSIGNED,
+        type: DataTypes.BIGINT,
         primaryKey: true,
         autoIncrement: true,
         unique: true,
         allowNull: false,
       },
       amount: {
-        type: DataTypes.FLOAT(15, 2),
+        type: DataTypes.FLOAT(15),
       },
       origin_account: {
         type: DataTypes.INTEGER,

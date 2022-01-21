@@ -4,7 +4,7 @@ module.exports = (sequelize, Model, DataTypes) => {
   Account.init(
     {
       amount: {
-        type: DataTypes.FLOAT(15, 2),
+        type: DataTypes.FLOAT(15),
       },
       pin: {
         type: DataTypes.INTEGER,
