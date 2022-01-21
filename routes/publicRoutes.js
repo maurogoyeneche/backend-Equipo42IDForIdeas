@@ -11,6 +11,6 @@ publicRouter.post('/token', userController.login);
 
 //User routes
 publicRouter.get('/', tokenVerification, userController.show);
-publicRouter.get('/transactions', userController.showAllTransactions);
+publicRouter.get('/transactions', tokenVerification, userController.showAllTransactions);
 
 module.exports = publicRouter;
