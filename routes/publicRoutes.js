@@ -4,7 +4,7 @@ const pageController = require('../controllers/pageController');
 const userController = require('../controllers/userController');
 const checkJwt = require('express-jwt');
 
-const tokenVerification = checkJwt({ secret: 'UnStringMuyScreto', algorithms: ['HS256'] });
+const tokenVerification = checkJwt({ secret: process.env.JWT_SECRET, algorithms: ['HS256'] });
 
 //Public routes
 publicRouter.post('/token', userController.login);

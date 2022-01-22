@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const login = async (req, res) => {
   const user = await User.findOne({ where: { email: req.body.email } });
   const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET);
+  console.log(token);
   if (user.password === req.body.password) {
     res.json({ accesToken: token });
   } else {
