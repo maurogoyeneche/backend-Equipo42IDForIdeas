@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_CONNECTION,
-    dialectModule: require(process.env.DB_DIALECT_MODULE),
+    dialectModule: require('pg'),
     omitNull: true,
     logging: false,
   },
