@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const { Transaction } = require('../models');
+const { Transaction, Account } = require('../models');
 const jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
@@ -14,14 +14,19 @@ const login = async (req, res) => {
 };
 
 const show = async (req, res) => {
-  const user = await User.findByPk(req.user.id);
+  const user = await User.scope('user').findByPk(req.user.id);
   if (!user)
     return res.status(401).json({ error: 'Sorry, You do not have permission to access here!' });
-  res.json({ ...user.dataValues, password: undefined }).status(200);
+  res.json(user).status(200);
 };
 
 const showAllTransactions = async (req, res) => {
-  const transactions = await Transaction.findAll();
+  const user = await User.scope('user').findByPk(req.user.id);
+  const accounts = await Account.findAll();
+  console.log(accounts);
+  const transactions = await Transaction.findByPk({
+    where: { accountId: accounts.id },
+  });
   res.json(transactions);
 };
 

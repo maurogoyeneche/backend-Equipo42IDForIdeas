@@ -30,6 +30,7 @@ module.exports = (sequelize, Model, DataTypes) => {
     },
     {
       sequelize,
+      scopes: { user: { attributes: { exclude: ['password'] } } },
       modelName: 'user',
     },
   );
